@@ -45,9 +45,21 @@ add_shortcode('wp_grid_gallery', 'wp_grid_gallery_shortcode');
 
 // Register Plugin CSS and JS files 
 function wp_grid_gallery_assets() {   
-    wp_enqueue_style( 'wp_grid_gallery_css', plugin_dir_url( __FILE__ ) . 'assets/css/wp_grid_gallery.css' );
-    wp_enqueue_script( 'wp_grid_gallery_js', plugin_dir_url( __FILE__ ) . 'assets/js/wp_grid_gallery.js' );
+    wp_enqueue_style( 'wp_grid_gallery', plugin_dir_url( __FILE__ ) . 'assets/css/wp_grid_gallery.css' );
+    wp_enqueue_script( 'wp_grid_gallery_js', plugin_dir_url( __FILE__ ) . 'assets/js/wp_grid_gallery.js', [], false, true );
 }
 add_action('wp_enqueue_scripts', 'wp_grid_gallery_assets');
 
+
+function hookLightbox() {
+    $buffer = '';
+    $buffer .= '<div id="wp_grid_gallery_lightbox" class="wp_grid_gallery_lightbox hide">';
+        $buffer .= '<div class="overlay"></div>';
+        $buffer .= '<span class="close_btn">&times;</span>';
+        $buffer .= '<img class="main_img" src="" alt="" />';
+    $buffer .= '</div>';
+    
+    echo $buffer;
+}
+add_action('wp_footer', 'hookLightbox');
 ?>

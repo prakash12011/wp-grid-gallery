@@ -9,4 +9,60 @@
     box-sizing: border-box;
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.18);
     border-radius: 3px;
+    cursor: pointer;
 }
+
+/* Lightbox */
+.wp_grid_gallery_lightbox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all .5;
+    visibility: visible;    
+    z-index: 999999;
+}
+.wp_grid_gallery_lightbox.hide {
+    visibility: hidden;    
+}
+.wp_grid_gallery_lightbox .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.7);
+}
+.wp_grid_gallery_lightbox .close_btn{
+    top: 10%;
+    right: 5%;
+    z-index: 9;
+    position: absolute;
+    color: white;
+    font-weight: 900;
+    font-size: 4rem;
+    cursor: pointer;
+}
+.wp_grid_gallery_lightbox img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    height: 90%;
+    z-index: 99;
+}
+/* 
+@media(min-width: 767px) {
+    .wp_grid_gallery_lightbox .close_btn {
+        right: 7%;
+    }
+    .wp_grid_gallery_lightbox img {
+        top: 5%;
+    }
+}
+@media(min-width: 992px) {
+
+} */
